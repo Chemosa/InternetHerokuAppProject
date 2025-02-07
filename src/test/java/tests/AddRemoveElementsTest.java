@@ -12,7 +12,7 @@ import java.util.List;
 public class AddRemoveElementsTest {
 
     @Test
-    public void AddRemoveElements() {
+    public void addRemoveElements() {
         System.setProperty("webdriver.edge.driver", "src/test/resources/msedgedriver.exe");
         WebDriver driver = new EdgeDriver();
         driver.get("https://the-internet.herokuapp.com/add_remove_elements/");
