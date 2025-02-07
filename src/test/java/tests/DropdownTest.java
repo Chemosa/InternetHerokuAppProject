@@ -46,4 +46,15 @@ public class DropdownTest {
         Assert.assertEquals(dropdown.getFirstSelectedOption().getText(), "Option 2");
         driver.quit();
     }
+
+    @Test
+    public void notSelectOptionTest() {
+        System.setProperty("webdriver.edge.driver", "src/test/resources/msedgedriver.exe");
+        WebDriver driver = new EdgeDriver();
+        driver.get("https://the-internet.herokuapp.com/dropdown");
+
+        Select dropdown = new Select(driver.findElement(By.id("dropdown")));
+        Assert.assertEquals(dropdown.getFirstSelectedOption().getText(), "Please select an option");
+        driver.quit();
+    }
 }
