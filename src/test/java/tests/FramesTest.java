@@ -17,5 +17,7 @@ public class FramesTest {
         driver.get(IFRAME_PAGE_URL);
         driver.switchTo().frame("mce_0_ifr");
         Assert.assertEquals(driver.findElement(By.id("tinymce")).getText(), "Your content goes here.");
+
+        driver.quit();
     }
 }

@@ -31,5 +31,7 @@ public class FileUploadTest {
         driver.findElement(UPLOAD_BUTTON).click();
         wait.until(ExpectedConditions.visibilityOfElementLocated(SUCCESSFUL_UPLOADING_TEXT));
         Assert.assertEquals(driver.findElement(UPLOADED_FILE_LIST).getText(), UPLOADED_FILE_NAME);
+
+        driver.quit();
     }
 }
