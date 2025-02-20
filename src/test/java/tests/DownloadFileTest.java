@@ -13,11 +13,11 @@ import java.util.HashMap;
 public class DownloadFileTest {
 
     private static final String DOWNLOAD_PAGE_URL = "https://the-internet.herokuapp.com/download";
-    private static final String FILE_TO_DOWNLOAD_NAME = "sample_media_file.png";
+    private static final String FILE_TO_DOWNLOAD_NAME = "random_data.txt";
     private static final String FILE_TO_DOWNLOAD_PATH = "//a[text()='%s']";
 
     @Test (description = "Check that file can be downloaded and present in user directory")
-    public void downloadFile() {
+    public void downloadFile () throws InterruptedException {
         EdgeOptions options = new EdgeOptions();
 
         HashMap<String, Object> edgePreferences = new HashMap<>();
@@ -29,12 +29,7 @@ public class DownloadFileTest {
         driver.get(DOWNLOAD_PAGE_URL);
         driver.findElement(By.xpath(String.format(FILE_TO_DOWNLOAD_PATH, FILE_TO_DOWNLOAD_NAME))).click();
 
-        //Без try/catch не работает, не получается импортировать java.lang. Почему такое может быть?
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Thread.sleep(5000);
 
         File userFolder = new File(System.getProperty("user.dir"));
         File[] filesInDirectory = userFolder.listFiles();
